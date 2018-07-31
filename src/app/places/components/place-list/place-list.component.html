@@ -1,0 +1,4 @@
+<h2>Restaurants</h2>
+<div *ngIf="places$ | async as places">
+  {{ places | json }}
+</div>

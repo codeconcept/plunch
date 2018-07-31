@@ -6,6 +6,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
+import { PlacesModule } from './places/places.module';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AppComponent } from './app.component';
     StoreDevtoolsModule.instrument({
       name: 'Plunch',
       maxAge: 15
-    })
+    }),
+    EffectsModule.forRoot([]),
+    PlacesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
