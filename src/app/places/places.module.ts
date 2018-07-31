@@ -10,6 +10,7 @@ import { PlaceListComponent } from './components/place-list/place-list.component
 import { PlaceAddComponent } from './components/place-add/place-add.component';
 import { EffectsModule } from '@ngrx/effects';
 import { PlaceEffects } from './state/place.effects';
+import { PlacelistContainerComponent } from './containers/placelist-container/placelist-container.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { PlaceEffects } from './state/place.effects';
     EffectsModule.forFeature([ PlaceEffects ]),
     HttpClientModule
   ],
-  declarations: [PlaceListComponent, PlaceAddComponent],
-  exports: [PlaceListComponent, PlaceAddComponent]
+  declarations: [PlaceListComponent, PlaceAddComponent, PlacelistContainerComponent],
+  exports: [PlacelistContainerComponent, PlaceAddComponent]
 })
 export class PlacesModule { }
