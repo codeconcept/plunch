@@ -33,6 +33,7 @@ export class PlaceEffects {
     mergeMap((place: Place) => {
       return this.placeService.createPlace(place).pipe(
         map(createdPlace => (new placeActions.CreatePlaceSuccess(createdPlace))),
+        map(() => (new placeActions.Load())),
         catchError(error => of(new placeActions.CreatePlaceFail(error)))
       )
     })

@@ -17,7 +17,6 @@ export class PlaceaddContainerComponent implements OnInit {
   }
 
   createPlace(place) {
-    console.log(`todo, add this place to existing places: ${JSON.stringify(place)}`);
     this.store.dispatch(new placeActions.CreatePlace(place));
   }
 
