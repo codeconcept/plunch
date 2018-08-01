@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; 
+import { HttpClient, HttpHeaders } from '@angular/common/http'; 
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
@@ -18,6 +18,15 @@ export class PlaceService {
     return this.http.get<Place[]>(this.placesURL)
       .pipe(
         tap(places => console.log('PlaceService getPlaces', places)),
+        catchError(this.handleError)
+      );
+  }
+
+  createPlace(place: Place): Observable<Place> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<Place>(this.placesURL, place, { headers: headers })
+      .pipe(
+        tap(place => console.log('place created', place)),
         catchError(this.handleError)
       );
   }

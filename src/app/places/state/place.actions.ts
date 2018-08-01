@@ -1,10 +1,13 @@
-import { Action } from '@ngrx/store';
-import { Place } from '../Place';
+import { Action } from "@ngrx/store";
+import { Place } from "../Place";
 
 export enum PlaceActionTypes {
-  Load = '[Place] Load',
-  LoadSuccess = '[Place] Load Success',
-  LoadFail = '[Place] Load Fail',
+  Load = "[Place] Load",
+  LoadSuccess = "[Place] Load Success",
+  LoadFail = "[Place] Load Fail",
+  CreatePlace = "[Place] Create Place",
+  CreatePlaceSuccess = "[Place] Create Place Success",
+  CreatePlaceFail = "[Place] Create Place Fail"
 }
 
 // action creators
@@ -26,4 +29,28 @@ export class LoadFail implements Action {
   constructor(public payload: string) {}
 }
 
-export type PlaceActions = Load | LoadSuccess | LoadFail;
+export class CreatePlace implements Action {
+  readonly type = PlaceActionTypes.CreatePlace;
+
+  constructor(public payload: Place) {}
+}
+
+export class CreatePlaceSuccess implements Action {
+  readonly type = PlaceActionTypes.CreatePlaceSuccess;
+
+  constructor(public payload: Place) {}
+}
+
+export class CreatePlaceFail implements Action {
+  readonly type = PlaceActionTypes.CreatePlaceFail;
+
+  constructor(public payload: string) {}
+}
+
+export type PlaceActions =
+  | Load
+  | LoadSuccess
+  | LoadFail
+  | CreatePlace
+  | CreatePlaceSuccess
+  | CreatePlaceFail;

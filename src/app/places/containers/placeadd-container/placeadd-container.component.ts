@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Store } from '@ngrx/store';
+import * as placeActions from '../../state/place.actions';
+
+
 @Component({
   selector: 'app-placeadd-container',
   templateUrl: './placeadd-container.component.html',
@@ -7,13 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaceaddContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<any>) { }
 
   ngOnInit() {
   }
 
   createPlace(place) {
     console.log(`todo, add this place to existing places: ${JSON.stringify(place)}`);
+    this.store.dispatch(new placeActions.CreatePlace(place));
   }
 
 }
