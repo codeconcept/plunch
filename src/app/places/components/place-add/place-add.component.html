@@ -1,3 +1,21 @@
-<p>
-  place-add works!
-</p>
+<div>
+  <form (ngSubmit)="savePlace(placeForm)" [formGroup]="placeForm">
+    <input type="text"  
+      id="placeName" 
+      formControlName="placeName" 
+      placeholder="nom du restaurant"><br>
+    <input type="text"  
+      id="placeStreet" 
+      formControlName="placeStreet" 
+      placeholder="rue"><br>
+    <input type="text"  
+      id="placeTown" 
+      formControlName="placeTown" 
+      placeholder="ville"><br>
+    <input type="text" 
+      id="placeZip" 
+      formControlName="placeZip" 
+      placeholder="code postal"><br>
+    <button type="submit">ajouter</button>
+  </form>
+</div>
