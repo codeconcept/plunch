@@ -1,5 +1,4 @@
 import { PlaceActionTypes, PlaceActions } from "./place.actions";
-import { PlaceaddContainerComponent } from "../containers/placeadd-container/placeadd-container.component";
 
 const initialState = {
   places: [],

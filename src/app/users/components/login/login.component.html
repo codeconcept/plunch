@@ -1,0 +1,18 @@
+<h2>Identification</h2>
+<div>
+  <form (ngSubmit)="loginUser(userForm)" [formGroup]="userForm">
+    <input type="text"  
+      id="pseudo" 
+      formControlName="pseudo" 
+      placeholder="pseudo"><br>
+    <input type="text"  
+      id="email" 
+      formControlName="email" 
+      placeholder="email"><br>
+    <input type="password"  
+      id="password" 
+      formControlName="password" 
+      placeholder="mot de passe"><br>
+    <button type="submit">valider</button>
+  </form>
+</div>

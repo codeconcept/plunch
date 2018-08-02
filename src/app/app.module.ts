@@ -7,7 +7,9 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { PlacesModule } from './places/places.module';
+import { UsersModule } from './users/users.module';
 import { EffectsModule } from '@ngrx/effects';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { EffectsModule } from '@ngrx/effects';
       maxAge: 15
     }),
     EffectsModule.forRoot([]),
-    PlacesModule
+    PlacesModule,
+    UsersModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
