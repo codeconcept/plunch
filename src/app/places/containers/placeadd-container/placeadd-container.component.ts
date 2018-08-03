@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import * as placeActions from '../../state/place.actions';
+import { Observable } from 'rxjs';
+import { User } from '../../../users/User';
+import { getUserState } from '../../../auth/state/auth.selectors';
 
 
 @Component({
@@ -10,10 +13,12 @@ import * as placeActions from '../../state/place.actions';
   styleUrls: ['./placeadd-container.component.css']
 })
 export class PlaceaddContainerComponent implements OnInit {
+  user$: Observable<User>;
 
   constructor(private store: Store<any>) { }
 
   ngOnInit() {
+    this.user$ = this.store.pipe(select(getUserState)) as Observable<User>;
   }
 
   createPlace(place) {

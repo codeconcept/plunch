@@ -1,1 +1,7 @@
-<app-place-add (create)="createPlace($event)"></app-place-add>
+<div *ngIf="user$ | async as user; else anonymous">
+  <app-place-add (create)="createPlace($event)"></app-place-add>
+</div>
+<ng-template #anonymous>
+    Afin de pouvoir ajouter un restaurant,
+    <b>merci de vous identifier</b>
+  </ng-template>
