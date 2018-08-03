@@ -4,10 +4,10 @@
 <div *ngIf="places">
   <div *ngFor="let place of places.places">
     <b>{{ place.name }}</b>
+    <br> {{place.street}}
+    <br> {{place.zip}} {{place.town}}
     <br>
-    {{place.street}} 
-    <br>
-    {{place.zip}} {{place.town}}
+    <button (click)="choosePlace(place.id)">choisir</button>
     <hr>
   </div>
 </div>

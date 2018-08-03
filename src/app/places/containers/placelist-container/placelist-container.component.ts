@@ -4,8 +4,10 @@ import { Observable } from 'rxjs';
 // NgRx
 import { Store, select } from '@ngrx/store';
 import * as placeActions from '../../state/place.actions';
+import * as userActions from '../../../users/state/user.actions';
 
 import { Place } from '../../Place';
+import { UserChoice } from '../../../users/UserChoice';
 
 @Component({
   selector: 'app-placelist-container',
@@ -20,6 +22,10 @@ export class PlacelistContainerComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(new placeActions.Load());
     this.places$ = this.store.pipe(select('places')) as Observable<Place[]>;
+  }
+
+  addUserchoice(userChoice: UserChoice) {
+    this.store.dispatch(new userActions.Choose(userChoice));
   }
 
 }
