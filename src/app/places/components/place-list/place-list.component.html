@@ -2,12 +2,15 @@
 <!-- {{ places | json }} -->
 <hr>
 <div *ngIf="places">
-  <div *ngFor="let place of places.places">
+  <div *ngFor="let place of places">
     <b>{{ place.name }}</b>
     <br> {{place.street}}
     <br> {{place.zip}} {{place.town}}
     <br>
     <button (click)="choosePlace(place.id)">choisir</button>
+    <app-place-chosen [votes]="votes" [placeId]="place.id"></app-place-chosen>
     <hr>
   </div>
 </div>
+
+votes : {{ votes | json }}

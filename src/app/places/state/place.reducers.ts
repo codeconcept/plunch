@@ -1,4 +1,10 @@
 import { PlaceActionTypes, PlaceActions } from "./place.actions";
+import { Place } from "../Place";
+
+export interface PlacesState {
+  places: Place[],
+  error: String
+}
 
 const initialState = {
   places: [],

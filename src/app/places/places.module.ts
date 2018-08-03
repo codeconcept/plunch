@@ -13,6 +13,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { PlaceEffects } from './state/place.effects';
 import { PlacelistContainerComponent } from './containers/placelist-container/placelist-container.component';
 import { PlaceaddContainerComponent } from './containers/placeadd-container/placeadd-container.component';
+import { PlaceChosenComponent } from './components/place-chosen/place-chosen.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { PlaceaddContainerComponent } from './containers/placeadd-container/plac
     HttpClientModule,
     ReactiveFormsModule
   ],
-  declarations: [PlaceListComponent, PlaceAddComponent, PlacelistContainerComponent, PlaceaddContainerComponent],
+  declarations: [PlaceListComponent, PlaceAddComponent, PlacelistContainerComponent, PlaceaddContainerComponent, PlaceChosenComponent],
   exports: [PlacelistContainerComponent, PlaceaddContainerComponent]
 })
 export class PlacesModule { }

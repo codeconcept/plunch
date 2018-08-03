@@ -5,3 +5,4 @@ export const getAuthState = createFeatureSelector<AuthState>('auth');
 
 export const getUserState = createSelector(getAuthState, (state:AuthState) => state.user);
 export const getUserId = createSelector(getUserState, (state) => state ? state.id : -1);
+export const getUserPseudo = createSelector(getUserState, (state) => state ? state.pseudo : '');

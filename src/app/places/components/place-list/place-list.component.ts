@@ -8,26 +8,21 @@ import { UserChoice } from '../../../users/UserChoice';
   templateUrl: './place-list.component.html',
   styleUrls: ['./place-list.component.css']
 })
-export class PlaceListComponent implements OnInit, OnChanges {
+export class PlaceListComponent implements OnInit {
   @Input() places: Place[];
   @Output() choose = new EventEmitter<UserChoice>();
   @Input() userId: Number;
-
+  @Input() pseudo;
+  @Input() userChoices: UserChoice[];
+  @Input() votes: any;
+  
   constructor() { }
-
+  
   ngOnInit() {
-    console.log('>>> ngOnInit ')
   }
-
+  
   choosePlace(placeId: Number) {
-    console.log('choosePlace() >>> this.userId', this.userId);
-    if(this.userId === undefined) return;
-    const userChoice: UserChoice = { placeId: placeId, userId: this.userId }
+    const userChoice: UserChoice = { placeId: placeId, userId: this.userId, pseudo: this.pseudo };
     this.choose.emit(userChoice);
   }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log('>>> ngOnChanges >>> userId change', changes.userId);
-  }
-
 }

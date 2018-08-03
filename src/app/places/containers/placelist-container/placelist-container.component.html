@@ -3,7 +3,16 @@
   <br>userId : {{ userId$ | async }}
 </div>
 <div *ngIf="user$ | async as user; else anonymous">
-  <app-place-list [places]="places$ | async" (choose)="addUserchoice($event)" [userId]="user.id"></app-place-list>
+  <app-place-list 
+    [places]="places$ | async" 
+    [userChoices]="userChoices$ | async" 
+    [votes]="votes$ | async"
+    (choose)="addUserchoice($event)" 
+    [userId]="user.id"
+    [pseudo]="user.pseudo"></app-place-list>
+</div>
+<div>
+  *** {{votes$ | async | json }}  ***
 </div>
 
 <ng-template #anonymous>
