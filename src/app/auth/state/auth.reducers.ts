@@ -1,4 +1,11 @@
 import { AuthActionTypes, AuthActions } from "./auth.actions";
+import { User } from "../../users/User";
+
+export interface AuthState {
+  loggedIn: Boolean;
+  user: User;
+  error: String
+}
 
 const initialState = {
   loggedIn: false,
@@ -7,8 +14,6 @@ const initialState = {
 };
 
 export function reducer(state = initialState, action: AuthActions): any {
-  console.log('auth.reducer.ts action', action);
-  console.log('auth.reducer.ts state', state);
   switch (action.type) {
     case AuthActionTypes.LoginSuccess:
       // for Firefow testing (seems there are no redux dev-tools for it ?)

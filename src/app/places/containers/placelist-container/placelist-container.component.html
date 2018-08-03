@@ -1,3 +1,12 @@
 <div>
-  <app-place-list [places]="places$ | async" (choose)="addUserchoice($event)"></app-place-list>
+  user : {{ user$ | async | json }}
+  <br>userId : {{ userId$ | async }}
 </div>
+<div *ngIf="user$ | async as user; else anonymous">
+  <app-place-list [places]="places$ | async" (choose)="addUserchoice($event)" [userId]="user.id"></app-place-list>
+</div>
+
+<ng-template #anonymous>
+  Pour voir les restaurants déjà suggérés et proposer votre suggestion,
+  <b>merci de vous identifier</b>
+</ng-template>
